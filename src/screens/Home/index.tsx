@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { pokemonService } from "../../services/pokemon";
 import { Container, Title } from "./styles";
+import { Header } from "../../components/Header";
 
 export function Home() {
   const [fetchPokemons, { data }] = pokemonService.usePokemons();
@@ -13,6 +14,7 @@ export function Home() {
 
   return (
     <Container>
+      <Header />
       <Title>Hello word !!!</Title>
     </Container>
   );
