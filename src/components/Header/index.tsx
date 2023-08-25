@@ -1,6 +1,11 @@
-import { Text } from "react-native";
-import { Container } from "./styles";
+import { BackButton, Container, Icon } from "./styles";
 
 export function Header() {
-  return <Container></Container>;
+  return (
+    <Container>
+      <BackButton>
+        <Icon />
+      </BackButton>
+    </Container>
+  );
 }

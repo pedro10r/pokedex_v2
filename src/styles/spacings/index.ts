@@ -12,6 +12,7 @@ export const SPACINGS = {
   45: RFValue(45),
   50: RFValue(50),
 
+  75: RFValue(75),
   80: RFValue(80),
-  110: RFValue(110),
+  100: RFValue(100),
 };
