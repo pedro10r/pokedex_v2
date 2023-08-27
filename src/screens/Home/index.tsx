@@ -5,6 +5,7 @@ import { pokemonService } from "@services/pokemon";
 import { Header } from "@components/Header";
 
 import { Container, Content, Title } from "./styles";
+import { PokemonList } from "@components/PokemonList";
 
 export function Home() {
   const [fetchPokemons, { data }] = pokemonService.usePokemons();
@@ -17,13 +18,7 @@ export function Home() {
     <Container>
       <Header hasBackButton={true} />
       <Content>
-        <ScrollView>
-          {!!data?.pokemon_v2_pokemon &&
-            data.pokemon_v2_pokemon.length &&
-            data.pokemon_v2_pokemon.map((item, index) => (
-              <Title key={`${item.id}_${index}`}>{item.name}</Title>
-            ))}
-        </ScrollView>
+        <PokemonList data={data?.pokemon_v2_pokemon!} />
       </Content>
     </Container>
   );
