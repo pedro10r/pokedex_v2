@@ -1,8 +1,10 @@
 import { useEffect } from "react";
-import { pokemonService } from "../../services/pokemon";
-import { Container, Content, Title } from "./styles";
-import { Header } from "../../components/Header";
 import { ScrollView } from "react-native";
+
+import { pokemonService } from "@services/pokemon";
+import { Header } from "@components/Header";
+
+import { Container, Content, Title } from "./styles";
 
 export function Home() {
   const [fetchPokemons, { data }] = pokemonService.usePokemons();
@@ -13,7 +15,7 @@ export function Home() {
 
   return (
     <Container>
-      <Header />
+      <Header hasBackButton={true} />
       <Content>
         <ScrollView>
           {!!data?.pokemon_v2_pokemon &&

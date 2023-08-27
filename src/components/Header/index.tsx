@@ -1,11 +1,22 @@
-import { BackButton, Container, Icon } from "./styles";
+import { BackButton, Container, Icon, Logo } from "./styles";
 
-export function Header() {
+import logo from "@assets/logo.png";
+
+type Props = {
+  hasBackButton?: boolean;
+  onPress?: () => void;
+};
+
+export function Header({ hasBackButton }: Props) {
   return (
-    <Container>
-      <BackButton>
-        <Icon />
-      </BackButton>
+    <Container hasBackButton={hasBackButton}>
+      {hasBackButton && (
+        <BackButton>
+          <Icon />
+        </BackButton>
+      )}
+
+      <Logo source={logo} />
     </Container>
   );
 }

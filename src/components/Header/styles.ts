@@ -1,27 +1,33 @@
 import styled from "styled-components/native";
+import { Platform } from "react-native";
 import { ArrowLeft } from "phosphor-react-native";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
-import { SPACINGS } from "@styles/spacings";
-import { Platform } from "react-native";
 
-export const Container = styled.View`
+import { SPACINGS } from "@styles/spacings";
+
+type Props = {
+  hasBackButton?: boolean;
+};
+
+export const Container = styled.View<Props>`
   background-color: ${({ theme }) => theme.COLORS.PRIMARY};
+  padding: ${SPACINGS.DEFAULT_PADDING};
 
   height: ${Platform.OS === "ios"
-    ? getStatusBarHeight() + SPACINGS[100]
-    : getStatusBarHeight() + SPACINGS[75]}px;
+    ? getStatusBarHeight() + 100
+    : getStatusBarHeight() + 75}px;
 
-  border-bottom-left-radius: ${SPACINGS[25]}px;
-  border-bottom-right-radius: ${SPACINGS[25]}px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 
-  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 
-  padding-top: ${SPACINGS[20]}px;
-  padding-left: ${SPACINGS[15]}px;
+  justify-content: ${({ hasBackButton }) => (!hasBackButton ? "center" : null)};
 `;
 
 export const BackButton = styled.View`
-  margin-right: ${SPACINGS[80]}px;
+  margin-right: 70px;
 `;
 
 export const Icon = styled(ArrowLeft).attrs(({ theme }) => ({
@@ -30,4 +36,7 @@ export const Icon = styled(ArrowLeft).attrs(({ theme }) => ({
   weight: "bold",
 }))``;
 
-export const Logo = styled.View``;
+export const Logo = styled.Image`
+  width: 150px;
+  height: 50px;
+`;
