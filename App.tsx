@@ -9,8 +9,8 @@ import {
 
 import { Routes } from "./src/routes";
 
-import { client } from "./src/services/client";
-import { theme } from "./src/styles/themes/default";
+import { client } from "@services/client";
+import { theme } from "@styles/themes/default";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
