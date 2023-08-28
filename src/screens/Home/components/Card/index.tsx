@@ -3,16 +3,15 @@ import { memo } from "react";
 import { ColorPalette } from "@hooks/usePokemonColor/types";
 import { PokemonType } from "@services/pokemon";
 import { capitalize } from "@utils/capitalize";
+import { Piece } from "@components/Piece";
 
 import {
   Container,
-  PokeNumberContainer,
+  IdArea,
   Name,
-  PokeNumber,
-  ImageContainer,
+  Id,
+  ImageArea,
   TypeArea,
-  TypeContainer,
-  TypeName,
   Image,
 } from "./styles";
 
@@ -27,27 +26,20 @@ type Props = {
 function CardMemo({ id, name, pallete, types, imageUri }: Props) {
   return (
     <Container backgroundColor={pallete.primary}>
-      <PokeNumberContainer>
-        <PokeNumber>#00{id}</PokeNumber>
-      </PokeNumberContainer>
+      <IdArea>
+        <Id>#00{id}</Id>
+      </IdArea>
 
-      <ImageContainer backgroundColor={pallete.secondary}>
+      <ImageArea backgroundColor={pallete.secondary}>
         <Image resizeMode="contain" source={{ uri: imageUri }} />
-      </ImageContainer>
+      </ImageArea>
 
       <Name textColor={pallete.text}>{capitalize(name)}</Name>
 
       <TypeArea>
         {!!types.length &&
           types.map((item, index) => (
-            <TypeContainer
-              key={`${item.type_id}_${index}`}
-              backgroundColor={pallete.secondary}
-            >
-              <TypeName textColor={pallete.text}>
-                {capitalize(item.pokemon_v2_type.name)}
-              </TypeName>
-            </TypeContainer>
+            <Piece key={`${item}_${index}`} item={item} pallete={pallete} />
           ))}
       </TypeArea>
     </Container>

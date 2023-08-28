@@ -20,7 +20,7 @@ export const Container = styled.View<BackgroundColorProps>`
   border-radius: 25px;
 `;
 
-export const PokeNumberContainer = styled.View`
+export const IdArea = styled.View`
   padding: 1px 6px;
   position: absolute;
   top: -10px;
@@ -30,13 +30,13 @@ export const PokeNumberContainer = styled.View`
   border-radius: 50px;
 `;
 
-export const PokeNumber = styled.Text`
+export const Id = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.REGULAR};
   font-size: ${RFValue(14)}px;
   color: ${({ theme }) => theme.COLORS.BLACK_100};
 `;
 
-export const ImageContainer = styled.View<BackgroundColorProps>`
+export const ImageArea = styled.View<BackgroundColorProps>`
   height: 135px;
   width: 135px;
   background-color: ${({ backgroundColor }) => backgroundColor};
@@ -61,18 +61,4 @@ export const TypeArea = styled.View`
   flex-direction: row;
   align-items: center;
   margin-top: 10px;
-`;
-
-export const TypeContainer = styled.View<BackgroundColorProps>`
-  padding: 2px 8px;
-  margin: 0 3px 0 3px;
-  background-color: ${({ backgroundColor }) => backgroundColor};
-  align-items: center;
-  border-radius: 100px;
-`;
-
-export const TypeName = styled.Text<TextColorProps>`
-  font-family: ${({ theme }) => theme.FONTS.REGULAR};
-  font-size: ${RFValue(14)}px;
-  color: ${({ textColor }) => textColor};
 `;
