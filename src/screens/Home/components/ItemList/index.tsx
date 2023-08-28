@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 
 import { Pokemon } from "@services/pokemon";
 import { Colors } from "@hooks/usePokemonColor/types";
@@ -18,7 +18,7 @@ function ItemListMemo({ item }: Props) {
   const types = item.pokemon_v2_pokemontypes;
 
   const pallete = usePokemonColorPalette(color);
-  const image = useUriPokemonImage(id);
+  const image = useMemo(() => useUriPokemonImage(id), [id]);
 
   return (
     <Card
@@ -27,6 +27,7 @@ function ItemListMemo({ item }: Props) {
       pallete={pallete}
       types={types}
       imageUri={image}
+      onPress={() => {}}
     />
   );
 }

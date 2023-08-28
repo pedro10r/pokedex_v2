@@ -21,11 +21,16 @@ type Props = {
   pallete: ColorPalette;
   types: PokemonType[];
   imageUri: string;
+  onPress: () => void;
 };
 
-function CardMemo({ id, name, pallete, types, imageUri }: Props) {
+function CardMemo({ id, name, pallete, types, imageUri, onPress }: Props) {
   return (
-    <Container backgroundColor={pallete.primary}>
+    <Container
+      backgroundColor={pallete.primary}
+      activeOpacity={0.8}
+      onPress={onPress}
+    >
       <IdArea>
         <Id>#00{id}</Id>
       </IdArea>

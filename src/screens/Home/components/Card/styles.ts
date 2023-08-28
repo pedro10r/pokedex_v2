@@ -9,7 +9,7 @@ type TextColorProps = {
   textColor: string;
 };
 
-export const Container = styled.View<BackgroundColorProps>`
+export const Container = styled.TouchableOpacity<BackgroundColorProps>`
   height: 235px;
   width: 48%;
   margin-right: 13.5px;
