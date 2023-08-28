@@ -5,15 +5,17 @@ export type PokemonType = {
   };
 };
 
+export type PokemonSpecy = {
+  pokemon_v2_pokemoncolor: {
+    name: string;
+  };
+};
+
 export type Pokemon = {
   id: number;
   name: string;
   pokemon_v2_pokemontypes: PokemonType[];
-  pokemon_v2_pokemonspecy: {
-    pokemon_v2_pokemoncolor: {
-      name: string;
-    };
-  };
+  pokemon_v2_pokemonspecy: PokemonSpecy;
 };
 
 export type Pokemons = {
