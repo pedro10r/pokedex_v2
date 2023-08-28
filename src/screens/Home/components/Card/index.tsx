@@ -1,8 +1,8 @@
-import { Pokemon } from "@services/pokemon";
-import { capitalize } from "@utils/capitalize";
+import { memo } from "react";
 
-import { usePokemonColorPalette } from "@hooks/usePokemonColor";
-import { Colors } from "@hooks/usePokemonColor/types";
+import { ColorPalette } from "@hooks/usePokemonColor/types";
+import { PokemonType } from "@services/pokemon";
+import { capitalize } from "@utils/capitalize";
 
 import {
   Container,
@@ -15,34 +15,31 @@ import {
   TypeName,
   Image,
 } from "./styles";
-import useUriPokemonImage from "@hooks/useUriPokemonImage";
 
 type Props = {
-  item: Pokemon;
+  id: number;
+  name: string;
+  pallete: ColorPalette;
+  types: PokemonType[];
+  imageUri: string;
 };
 
-export function Card({ item }: Props) {
-  const color = item.pokemon_v2_pokemonspecy.pokemon_v2_pokemoncolor
-    .name as Colors;
-
-  const pallete = usePokemonColorPalette(color);
-  const image = useUriPokemonImage(item.id);
-
+function CardMemo({ id, name, pallete, types, imageUri }: Props) {
   return (
     <Container backgroundColor={pallete.primary}>
       <PokeNumberContainer>
-        <PokeNumber>#00{item.id}</PokeNumber>
+        <PokeNumber>#00{id}</PokeNumber>
       </PokeNumberContainer>
 
       <ImageContainer backgroundColor={pallete.secondary}>
-        <Image resizeMode="contain" source={{ uri: image }} />
+        <Image resizeMode="contain" source={{ uri: imageUri }} />
       </ImageContainer>
 
-      <Name textColor={pallete.text}>{capitalize(item.name)}</Name>
+      <Name textColor={pallete.text}>{capitalize(name)}</Name>
 
       <TypeArea>
-        {!!item.pokemon_v2_pokemontypes.length &&
-          item.pokemon_v2_pokemontypes.map((item, index) => (
+        {!!types.length &&
+          types.map((item, index) => (
             <TypeContainer
               key={`${item.type_id}_${index}`}
               backgroundColor={pallete.secondary}
@@ -56,3 +53,7 @@ export function Card({ item }: Props) {
     </Container>
   );
 }
+
+export const Card = memo(CardMemo, (prevProps, nextProps) => {
+  return nextProps.id === prevProps.id;
+});

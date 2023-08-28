@@ -1,7 +1,7 @@
 import { FlatList } from "react-native";
 
 import { Pokemon } from "@services/pokemon";
-import { Card } from "@screens/Home/components/Card";
+import { ItemList } from "@screens/Home/components/ItemList";
 
 type Props = {
   data: Pokemon[];
@@ -12,7 +12,7 @@ export function PokemonList({ data }: Props) {
     <FlatList
       data={data}
       keyExtractor={(item) => String(item.id)}
-      renderItem={({ item }) => <Card item={item} />}
+      renderItem={({ item }) => <ItemList item={item} />}
       numColumns={2}
       showsVerticalScrollIndicator={false}
     />
