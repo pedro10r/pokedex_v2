@@ -1,14 +1,14 @@
 import { useEffect } from "react";
-import { ScrollView } from "react-native";
+import { Text } from "react-native";
 
 import { pokemonService } from "@services/pokemon";
 import { Header } from "@components/Header";
 
-import { Container, Content, Title } from "./styles";
+import { Container, Content } from "./styles";
 import { PokemonList } from "@components/PokemonList";
 
 export function Home() {
-  const [fetchPokemons, { data }] = pokemonService.usePokemons();
+  const [fetchPokemons, { data, loading }] = pokemonService.usePokemons();
 
   useEffect(() => {
     fetchPokemons();
@@ -18,7 +18,11 @@ export function Home() {
     <Container>
       <Header hasBackButton={true} />
       <Content>
-        <PokemonList data={data?.pokemon_v2_pokemon!} />
+        {loading ? (
+          <Text>Carregando lista</Text>
+        ) : (
+          <PokemonList data={data?.pokemon_v2_pokemon!} />
+        )}
       </Content>
     </Container>
   );

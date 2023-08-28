@@ -10,20 +10,17 @@ type Props = {
 };
 
 export const Container = styled.View<Props>`
-  background-color: ${({ theme }) => theme.COLORS.PRIMARY};
-  padding: ${SPACINGS.DEFAULT_PADDING};
-
   height: ${Platform.OS === "ios"
     ? getStatusBarHeight() + 100
     : getStatusBarHeight() + 75}px;
 
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-
+  background-color: ${({ theme }) => theme.COLORS.PRIMARY};
+  padding: ${SPACINGS.DEFAULT_PADDING};
   align-items: center;
   flex-direction: row;
-
   justify-content: ${({ hasBackButton }) => (!hasBackButton ? "center" : null)};
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 `;
 
 export const BackButton = styled.View`
