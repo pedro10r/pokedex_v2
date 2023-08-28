@@ -12,7 +12,14 @@ export function AppRoutes() {
         headerShown: false,
       }}
     >
-      <Screen name="Home" component={Home} />
+      <Screen
+        name="Home"
+        component={Home}
+        options={{
+          gestureEnabled: false,
+          animation: "slide_from_right",
+        }}
+      />
     </Navigator>
   );
 }
