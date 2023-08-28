@@ -9,6 +9,7 @@ export const theme = {
     WARNING: "#FFCB05",
     INPUT_DETAILS: "#3663AD",
     INPUT_ICON: "#395BA7",
+    TEXT: "#302F2F",
 
     BLACK_100: "#4C4C4C",
     BLACK_200: "#8A8A8A",
