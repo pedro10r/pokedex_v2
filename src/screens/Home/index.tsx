@@ -16,7 +16,8 @@ export function Home() {
 
   return (
     <Container>
-      <Header hasBackButton={true} />
+      <Header />
+
       <Content>
         {loading ? (
           <Text>Carregando lista</Text>
