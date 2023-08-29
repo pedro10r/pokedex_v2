@@ -36,19 +36,17 @@ export const Id = styled.Text`
   color: ${({ theme }) => theme.COLORS.BLACK_100};
 `;
 
-export const ImageArea = styled.View<BackgroundColorProps>`
-  height: 135px;
+export const Image = styled.Image`
   width: 135px;
-  background-color: ${({ backgroundColor }) => backgroundColor};
+  height: 135px;
   margin-bottom: 10px;
-  border-radius: 100px;
-  align-items: center;
-  justify-content: center;
 `;
 
-export const Image = styled.Image`
+export const ImageAbsolute = styled.Image`
+  position: absolute;
   width: 140px;
   height: 140px;
+  top: 10px;
 `;
 
 export const Name = styled.Text<TextColorProps>`

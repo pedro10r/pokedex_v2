@@ -4,15 +4,16 @@ import { ColorPalette } from "@hooks/usePokemonColor/types";
 import { PokemonType } from "@services/pokemon";
 import { capitalize } from "@utils/capitalize";
 import { Piece } from "@components/Piece";
+import imageBackGround from "@assets/background_white.png";
 
 import {
   Container,
   IdArea,
   Name,
   Id,
-  ImageArea,
   TypeArea,
   Image,
+  ImageAbsolute,
 } from "./styles";
 
 type Props = {
@@ -35,9 +36,8 @@ function CardMemo({ id, name, pallete, types, imageUri, onPress }: Props) {
         <Id>#00{id}</Id>
       </IdArea>
 
-      <ImageArea backgroundColor={pallete.secondary}>
-        <Image resizeMode="contain" source={{ uri: imageUri }} />
-      </ImageArea>
+      <Image source={imageBackGround} />
+      <ImageAbsolute resizeMode="contain" source={{ uri: imageUri }} />
 
       <Name textColor={pallete.text}>{capitalize(name)}</Name>
 

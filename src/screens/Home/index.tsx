@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Text } from "react-native";
+import { StatusBar, Text } from "react-native";
 
 import { pokemonService } from "@services/pokemon";
 import { Header } from "@screens/Home/components/Header";
@@ -16,6 +16,7 @@ export function Home() {
 
   return (
     <Container>
+      <StatusBar translucent barStyle="dark-content" />
       <Header />
 
       <Content>

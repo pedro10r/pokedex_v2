@@ -1,4 +1,6 @@
+import { StatusBar } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { useTheme } from "styled-components";
 
 import { Piece } from "@components/Piece";
 
@@ -21,7 +23,6 @@ import {
   Image,
   ImageBackground,
 } from "./styles";
-import { useTheme } from "styled-components";
 
 type RouteParams = {
   id: number;
@@ -58,6 +59,7 @@ export function Details() {
 
   return (
     <Container backgroundColor={containerColor}>
+      <StatusBar translucent barStyle="light-content" />
       <ImageBackground source={imageBackground} />
 
       <Header>
