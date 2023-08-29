@@ -24,7 +24,7 @@ function ItemListMemo({ item }: Props) {
   const imageUri = useMemo(() => useUriPokemonImage(id), [id]);
 
   const handleOpenDetails = useCallback((id: number) => {
-    navigation.navigate("Details", { id });
+    navigation.navigate("Details", { id, name: item.name, pallete });
   }, []);
 
   return (
