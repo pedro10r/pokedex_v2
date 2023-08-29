@@ -6,7 +6,7 @@ import { ColorPalette } from "@hooks/usePokemonColor/types";
 import { useUriPokemonImage } from "@hooks/useUriPokemonImage";
 import { PokemonType } from "@services/pokemon";
 import { capitalize } from "@utils/capitalize";
-import imageBackground from "@assets/image_background.png";
+import imageBackground from "@assets/background_white.png";
 
 import {
   Container,

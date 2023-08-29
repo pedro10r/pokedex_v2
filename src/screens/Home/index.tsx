@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Text } from "react-native";
 
 import { pokemonService } from "@services/pokemon";
-import { Header } from "@components/Header";
+import { Header } from "@screens/Home/components/Header";
 import { PokemonList } from "@screens/Home/components/PokemonList";
 
 import { Container, Content } from "./styles";
