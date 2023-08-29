@@ -74,10 +74,10 @@ export const ImageBackground = styled.Image`
 `;
 
 export const Image = styled.Image`
-  width: ${SIZE_IMAGE}px;
-  height: ${SIZE_IMAGE}px;
-  left: 20%;
-  top: -50%;
+  width: 220px;
+  height: 220px;
+  left: 15%;
+  top: -55%;
 `;
 
 export const Content = styled.View`
