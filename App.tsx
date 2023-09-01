@@ -1,3 +1,5 @@
+import "react-native-reanimated";
+
 import { ApolloProvider } from "@apollo/client";
 import { ThemeProvider } from "styled-components";
 import {
