@@ -1,2 +1,3 @@
-# pokedex_v2
-New version Pokedex app of my Github
+# Pokedex_V2
+
+New version of the Pokedex application from my Github is under development...
