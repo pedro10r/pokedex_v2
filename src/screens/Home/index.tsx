@@ -5,8 +5,8 @@ import { pokemonService } from "@services/pokemon";
 import { Header } from "@screens/Home/components/Header";
 import { PokemonList } from "@screens/Home/components/PokemonList";
 
-import { Container, Content } from "./styles";
 import { SkeletonLoading } from "./components/SkeletonLoading";
+import { Container, Content } from "./styles";
 
 export function Home() {
   const [fetchPokemons, { data, loading }] = pokemonService.usePokemons();
@@ -16,17 +16,19 @@ export function Home() {
   }, []);
 
   return (
-    <Container>
-      <StatusBar translucent barStyle="dark-content" />
-      <Header />
+    <>
+      {loading ? (
+        <SkeletonLoading />
+      ) : (
+        <Container>
+          <StatusBar translucent barStyle="dark-content" />
+          <Header />
 
-      <Content>
-        {loading ? (
-          <SkeletonLoading />
-        ) : (
-          <PokemonList data={data?.pokemon_v2_pokemon!} />
-        )}
-      </Content>
-    </Container>
+          <Content>
+            <PokemonList data={data?.pokemon_v2_pokemon!} />
+          </Content>
+        </Container>
+      )}
+    </>
   );
 }
