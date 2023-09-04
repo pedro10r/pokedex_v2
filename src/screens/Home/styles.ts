@@ -1,7 +1,8 @@
 import { SPACINGS } from "@styles/spacings";
+import { MotiView } from "moti";
 import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const Container = styled(MotiView)`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.SHAPE};
 `;

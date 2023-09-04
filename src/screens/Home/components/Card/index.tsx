@@ -37,7 +37,13 @@ function CardMemo({ id, name, pallete, types, imageUri, onPress }: Props) {
       </IdArea>
 
       <Image source={imageBackGround} />
-      <ImageAbsolute resizeMode="contain" source={{ uri: imageUri }} />
+      <ImageAbsolute
+        from={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: "timing", duration: 3000 }}
+        resizeMode="contain"
+        source={{ uri: imageUri }}
+      />
 
       <Name textColor={pallete.text}>{capitalize(name)}</Name>
 

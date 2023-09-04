@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import { RFValue } from "react-native-responsive-fontsize";
+import { MotiImage } from "moti";
 
 type BackgroundColorProps = {
   backgroundColor: string;
@@ -42,7 +43,7 @@ export const Image = styled.Image`
   margin-bottom: 10px;
 `;
 
-export const ImageAbsolute = styled.Image`
+export const ImageAbsolute = styled(MotiImage)`
   position: absolute;
   width: 140px;
   height: 140px;
