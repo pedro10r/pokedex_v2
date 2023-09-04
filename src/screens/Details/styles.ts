@@ -30,9 +30,7 @@ export const Header = styled.View`
   padding-right: ${SPACINGS.DEFAULT_PADDING};
 `;
 
-export const BackButton = styled.TouchableOpacity`
-  margin-top: ${getStatusBarHeight() + 20}px;
-`;
+export const BackButton = styled.TouchableOpacity``;
 
 export const IconButton = styled(ArrowLeft).attrs(() => ({
   size: 24,
@@ -68,7 +66,7 @@ export const TypeArea = styled.View`
 export const ImageBackground = styled.Image`
   position: absolute;
   left: ${widthScreen - SIZE_IMAGE + 30}px;
-  top: ${heightScreen / 1.9 - SIZE_IMAGE}px;
+  top: ${heightScreen / 1.8 - SIZE_IMAGE}px;
   height: ${SIZE_IMAGE}px;
   width: ${SIZE_IMAGE}px;
 `;
@@ -76,8 +74,8 @@ export const ImageBackground = styled.Image`
 export const Image = styled.Image`
   width: 220px;
   height: 220px;
-  left: 15%;
-  top: -55%;
+  left: ${widthScreen / 6}px;
+  top: ${heightScreen / SIZE_IMAGE - 180}px;
 `;
 
 export const Content = styled.View`

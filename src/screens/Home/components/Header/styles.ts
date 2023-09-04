@@ -8,7 +8,7 @@ const widthScreen = Dimensions.get("screen").width;
 const IMAGE_SIZE = 200;
 
 export const Container = styled.View`
-  height: ${Platform.OS === "ios" ? 100 : 75}px;
+  height: 120px;
   padding: ${SPACINGS.DEFAULT_PADDING};
   justify-content: center;
 `;

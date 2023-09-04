@@ -1,4 +1,4 @@
-import { StatusBar } from "react-native";
+import { SafeAreaView, StatusBar } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useTheme } from "styled-components";
 
@@ -59,6 +59,7 @@ export function Details() {
 
   return (
     <Container backgroundColor={containerColor}>
+      <SafeAreaView />
       <StatusBar translucent barStyle="light-content" />
       <ImageBackground source={imageBackground} />
 
