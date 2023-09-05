@@ -23,6 +23,8 @@ import {
   Image,
   ImageBackground,
 } from "./styles";
+import { useEffect } from "react";
+import usePokemonDetails from "@services/pokemon/hooks/usePokemonDetails";
 
 type RouteParams = {
   id: number;
@@ -56,6 +58,14 @@ export function Details() {
     pallete.primary === theme?.COLORS?.WHITE_100
       ? pallete.support
       : pallete.primary;
+
+  const [fetchPokemonDetails, { data }] = usePokemonDetails(id);
+
+  useEffect(() => {
+    fetchPokemonDetails();
+  }, []);
+
+  console.log("AQUI >", JSON.stringify(data, null, 2));
 
   return (
     <Container backgroundColor={containerColor}>
