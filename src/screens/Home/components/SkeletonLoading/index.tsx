@@ -15,7 +15,9 @@ export function SkeletonLoading() {
     <Container>
       <SafeAreaView />
       <Header>
-        <Skeleton colorMode={"light"} radius={25} height={80} width={200} />
+        <Skeleton colorMode={"light"} radius={20} height={80} width={200} />
+        <Spacer />
+        <Skeleton colorMode={"light"} radius={20} height={60} width={"100%"} />
       </Header>
 
       <Spacer />

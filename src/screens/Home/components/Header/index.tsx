@@ -1,8 +1,10 @@
 import { SafeAreaView } from "react-native";
-import { Container, Logo, ImageBackground } from "./styles";
 
 import logo from "@assets/logo.png";
 import imageBackground from "@assets/background.png";
+
+import { words } from "./words";
+import { Container, Logo, ImageBackground, Title } from "./styles";
 
 export function Header() {
   return (
@@ -10,6 +12,7 @@ export function Header() {
       <SafeAreaView />
       <ImageBackground source={imageBackground} />
       <Logo source={logo} />
+      <Title>{words.title}</Title>
     </Container>
   );
 }
