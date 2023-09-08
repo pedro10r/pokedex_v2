@@ -6,13 +6,13 @@ import { capitalize } from "@utils/capitalize";
 
 type Props = {
   item: PokemonType;
-  pallete: ColorPalette;
+  palette: ColorPalette;
 };
 
-export function Piece({ item, pallete }: Props) {
+export function Piece({ item, palette }: Props) {
   return (
-    <Container backgroundColor={pallete.secondary}>
-      <Name textColor={pallete.text}>
+    <Container backgroundColor={palette.secondary}>
+      <Name textColor={palette.text}>
         {capitalize(item.pokemon_v2_type.name)}
       </Name>
     </Container>

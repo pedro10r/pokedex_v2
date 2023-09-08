@@ -29,7 +29,7 @@ import usePokemonDetails from "@services/pokemon/hooks/usePokemonDetails";
 type RouteParams = {
   id: number;
   name: string;
-  pallete: ColorPalette;
+  palette: ColorPalette;
 };
 
 export function Details() {
@@ -49,23 +49,21 @@ export function Details() {
   ];
 
   const { params } = useRoute();
-  const { id, name, pallete } = params as RouteParams;
+  const { id, name, palette } = params as RouteParams;
   const { goBack } = useNavigation();
   const imageUri = useUriPokemonImage(id);
   const theme = useTheme();
 
   const containerColor =
-    pallete.primary === theme?.COLORS?.WHITE_100
-      ? pallete.support
-      : pallete.primary;
+    palette.primary === theme?.COLORS?.WHITE_100
+      ? palette.support
+      : palette.primary;
 
   const [fetchPokemonDetails, { data }] = usePokemonDetails(id);
 
   useEffect(() => {
     fetchPokemonDetails();
   }, []);
-
-  console.log("AQUI >", JSON.stringify(data, null, 2));
 
   return (
     <Container backgroundColor={containerColor}>
@@ -75,18 +73,18 @@ export function Details() {
 
       <Header>
         <BackButton activeOpacity={0.7} onPress={goBack}>
-          <IconButton color={pallete.text} />
+          <IconButton color={palette.text} />
         </BackButton>
 
         <ActiveArea>
-          <Title textColor={pallete.text}>{capitalize(name)}</Title>
-          <Id textColor={pallete.text}>#00{id}</Id>
+          <Title textColor={palette.text}>{capitalize(name)}</Title>
+          <Id textColor={palette.text}>#00{id}</Id>
         </ActiveArea>
 
         <TypeArea>
           {!!types.length &&
             types.map((item, index) => (
-              <Piece key={`${item}_${index}`} item={item} pallete={pallete} />
+              <Piece key={`${item}_${index}`} item={item} palette={palette} />
             ))}
         </TypeArea>
       </Header>

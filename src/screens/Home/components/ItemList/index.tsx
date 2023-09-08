@@ -20,18 +20,18 @@ function ItemListMemo({ item }: Props) {
     .name as Colors;
   const types = item.pokemon_v2_pokemontypes;
 
-  const pallete = usePokemonColorPalette(color);
+  const palette = usePokemonColorPalette(color);
   const imageUri = useMemo(() => useUriPokemonImage(id), [id]);
 
   const handleOpenDetails = useCallback((id: number) => {
-    navigation.navigate("Details", { id, name: item.name, pallete });
+    navigation.navigate("Details", { id, name: item.name, palette });
   }, []);
 
   return (
     <Card
       id={id}
       name={name}
-      pallete={pallete}
+      palette={palette}
       types={types}
       imageUri={imageUri}
       onPress={() => handleOpenDetails(id)}

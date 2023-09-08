@@ -43,7 +43,12 @@ export const Image = styled.Image`
   margin-bottom: 10px;
 `;
 
-export const ImageAbsolute = styled(MotiImage)`
+export const ImageAbsolute = styled(MotiImage).attrs({
+  from: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { type: "timing", duration: 3000 },
+  resizeMode: "contain",
+})`
   position: absolute;
   width: 140px;
   height: 140px;

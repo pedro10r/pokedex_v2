@@ -7,7 +7,7 @@ export declare global {
       Details: {
         id: number;
         name: string;
-        pallete: ColorPalette;
+        palette: ColorPalette;
       };
     }
   }

@@ -19,16 +19,16 @@ import {
 type Props = {
   id: number;
   name: string;
-  pallete: ColorPalette;
+  palette: ColorPalette;
   types: PokemonType[];
   imageUri: string;
   onPress: () => void;
 };
 
-function CardMemo({ id, name, pallete, types, imageUri, onPress }: Props) {
+function CardMemo({ id, name, palette, types, imageUri, onPress }: Props) {
   return (
     <Container
-      backgroundColor={pallete.primary}
+      backgroundColor={palette.primary}
       activeOpacity={0.8}
       onPress={onPress}
     >
@@ -37,20 +37,14 @@ function CardMemo({ id, name, pallete, types, imageUri, onPress }: Props) {
       </IdArea>
 
       <Image source={imageBackGround} />
-      <ImageAbsolute
-        from={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ type: "timing", duration: 3000 }}
-        resizeMode="contain"
-        source={{ uri: imageUri }}
-      />
+      <ImageAbsolute source={{ uri: imageUri }} />
 
-      <Name textColor={pallete.text}>{capitalize(name)}</Name>
+      <Name textColor={palette.text}>{capitalize(name)}</Name>
 
       <TypeArea>
         {!!types.length &&
           types.map((item, index) => (
-            <Piece key={`${item}_${index}`} item={item} pallete={pallete} />
+            <Piece key={`${item}_${index}`} item={item} palette={palette} />
           ))}
       </TypeArea>
     </Container>
