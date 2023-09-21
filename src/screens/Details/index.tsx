@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { SafeAreaView, StatusBar } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useTheme } from "styled-components";
@@ -6,10 +7,12 @@ import { Piece } from "@components/Piece";
 
 import { ColorPalette } from "@hooks/usePokemonColor/types";
 import { useUriPokemonImage } from "@hooks/useUriPokemonImage";
+import { pokemonService } from "@services/pokemon";
 import { PokemonType } from "@services/pokemon";
 import { capitalize } from "@utils/capitalize";
 import imageBackground from "@assets/background_white.png";
 
+import { Summary } from "./components/Summary";
 import {
   Container,
   Header,
@@ -23,8 +26,6 @@ import {
   Image,
   ImageBackground,
 } from "./styles";
-import { useEffect } from "react";
-import usePokemonDetails from "@services/pokemon/hooks/usePokemonDetails";
 
 type RouteParams = {
   id: number;
@@ -59,7 +60,7 @@ export function Details() {
       ? palette.support
       : palette.primary;
 
-  const [fetchPokemonDetails, { data }] = usePokemonDetails(id);
+  const [fetchPokemonDetails, { data }] = pokemonService.usePokemonDetails(id);
 
   useEffect(() => {
     fetchPokemonDetails();
@@ -91,6 +92,8 @@ export function Details() {
 
       <Content>
         <Image resizeMode="contain" source={{ uri: imageUri }} />
+
+        <Summary data={data} />
       </Content>
     </Container>
   );

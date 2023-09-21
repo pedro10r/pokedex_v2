@@ -72,15 +72,18 @@ export const ImageBackground = styled.Image`
 `;
 
 export const Image = styled.Image`
-  width: 220px;
-  height: 220px;
-  left: ${widthScreen / 6}px;
-  top: ${heightScreen / SIZE_IMAGE - 180}px;
+  position: absolute;
+  top: -50%;
+  left: 15%;
+  width: 65%;
+  height: 60%;
 `;
 
 export const Content = styled.View`
   flex: 1;
+  margin-top: -50px;
   background-color: ${({ theme }) => theme.COLORS.SHAPE};
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  align-items: center;
 `;

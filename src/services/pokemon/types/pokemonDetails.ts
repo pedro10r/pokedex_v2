@@ -12,15 +12,15 @@ type PokemonStats = {
 };
 
 export type FlavorText = {
-  pokemon_v2_pokemonspeciesflavortexts: {
-    flavor_text: string;
-  };
+  pokemon_v2_pokemonspeciesflavortexts: [{ flavor_text: string }];
 };
 
 export type PokemonDetails = {
-  height: number;
-  weight: number;
-  pokemon_v2_pokemonabilities: PokemonAbilities;
-  pokemon_v2_pokemonstats: PokemonStats;
-  pokemon_v2_pokemonspecy: FlavorText;
+  pokemon_v2_pokemon_by_pk: {
+    height: number;
+    weight: number;
+    pokemon_v2_pokemonabilities: PokemonAbilities;
+    pokemon_v2_pokemonstats: PokemonStats;
+    pokemon_v2_pokemonspecy: FlavorText;
+  };
 };
